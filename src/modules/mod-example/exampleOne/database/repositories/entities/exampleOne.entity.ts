@@ -3,7 +3,6 @@ import { ExampleTwo } from "@/modules/mod-example/exampleTwo/database/repositori
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
 
 
-
 @Entity()
 export class ExampleOne {
     @PrimaryGeneratedColumn('uuid')
