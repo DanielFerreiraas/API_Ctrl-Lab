@@ -4,7 +4,7 @@ import { LaboratoryService } from "@/modules/laboratory/business/services/Labora
 
 import { BaseControllerImpl } from "@/modules/base/BaseControllerimpl";
 
-import { CreateLaboratoryDTO, LaboratoryDTO, UpdateLaboratoryDTO } from "@/modules/laboratory/dtos/LaboratoryDto";
+import { CreateLaboratoryDTO, LaboratoryDTO, UpdateLaboratoryDTO } from "@/modules/laboratory/dtos/LaboratoryDTO";
 
 @injectable()
 export class LaboratoryControllerImpl 

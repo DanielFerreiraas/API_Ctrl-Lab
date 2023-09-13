@@ -4,7 +4,7 @@ import { LaboratoryRepository } from "@/modules/laboratory/database/repositories
 
 import { BaseServiceImpl } from "@/modules/base/BaseServiceImpl";
 
-import { CreateLaboratoryDTO, LaboratoryDTO, UpdateLaboratoryDTO } from "@/modules/laboratory/dtos/LaboratoryDto";
+import { CreateLaboratoryDTO, LaboratoryDTO, UpdateLaboratoryDTO } from "@/modules/laboratory/dtos/LaboratoryDTO";
 
 @injectable()
 export class LaboratoryServiceImpl 
@@ -16,6 +16,5 @@ export class LaboratoryServiceImpl
         ) {
             super(laboratoryRepository)
         }
-           
         
 }
