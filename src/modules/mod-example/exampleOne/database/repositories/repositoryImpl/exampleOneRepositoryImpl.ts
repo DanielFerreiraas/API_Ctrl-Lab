@@ -5,7 +5,7 @@ import { ExampleOneDTO, CreateExampleOneDTO, UpdateExampleOneDTO } from "../../.
 import { BaseRepositoryImpl } from "@/modules/base/BaseRepositoryImpl";
 
 export class ExampleOneRepositoryImpl 
-    extends BaseRepositoryImpl<ExampleOne, CreateExampleOneDTO, UpdateExampleOneDTO> {
+    extends BaseRepositoryImpl<ExampleOneDTO, CreateExampleOneDTO, UpdateExampleOneDTO> {
         
         constructor() {
             super("id", ExampleOne)

@@ -1,4 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { ExampleTwo } from "@/modules/mod-example/exampleTwo/database/repositories/entities/exampleTwo.entity";
+
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
+
 
 @Entity()
 export class ExampleOne {
@@ -10,4 +13,7 @@ export class ExampleOne {
 
     @Column()
     fieldTwo: string;
+
+    @OneToMany(() => ExampleTwo, exampleTwo => exampleTwo.exampleOne, {eager: true})
+    exampleTwoId: ExampleTwo[]
 }
