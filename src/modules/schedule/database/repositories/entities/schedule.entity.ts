@@ -7,13 +7,13 @@ export class schedule {
     id: string;
 
     @Column()
-    laboratory_id: string;
+    laboratoryId: string;
 
     @Column()
-    user_id: string;
+    userId: string;
 
     @Column()
-    course_id: string;
+    courseId: string;
 
     @Column()
     date: string;

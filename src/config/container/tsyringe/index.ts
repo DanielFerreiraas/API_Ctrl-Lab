@@ -1,33 +1,34 @@
 import { container } from 'tsyringe';
 
-import { ExampleOneControllerImpl } from '@/modules/mod-example/exampleOne/api/controllers/controllerImpl/exampleOneControllerImpl';
-import { ExampleTwoControllerImpl } from '@/modules/mod-example/exampleTwo/api/controllers/impl/ExampleTwoControllerImpl'; 
 import { LaboratoryControllerImpl } from '@/modules/laboratory/api/controllers/controllerImpl/LaboratoryControllerImpl';
 import { CourseControllerImpl } from '@/modules/course/api/controllers/controllerImpl/CourseControllerImpl';
+import { scheduleControllerImpl } from '@/modules/schedule/api/controllers/controllerImpl/scheduleControllerImpl';
+import { AuthControllerImpl } from '@/modules/auth/auth/api/controllers/impl/authControllerImpl';
 
-import { ExampleOneServiceImpl } from '@/modules/mod-example/exampleOne/business/services/serviceImpl/exampleOneServiceImpl';
-import { ExampleTwoServiceImpl } from '@/modules/mod-example/exampleTwo/business/services/impl/ExampleTwoServiceImpl';
 import { LaboratoryServiceImpl } from '@/modules/laboratory/business/services/serviceImpl/LaboratoryServiceImpl';
 import { CourseServiceImpl } from '@/modules/course/business/services/serviceImpl/CourseServiceImpl';
+import { scheduleServiceImpl } from '@/modules/schedule/business/services/serviceImpl/scheduleServiceImpl';
+import { AuthServiceImpl } from '@/modules/auth/auth/business/services/impl/authServiceImpl';
+import { UserServiceImpl } from '@/modules/auth/user/business/services/impl/UserServiceImpl';
 
-import { ExampleOneRepositoryImpl } from '@/modules/mod-example/exampleOne/database/repositories/repositoryImpl/exampleOneRepositoryImpl';
-import { ExampleTwoRepositoryImpl } from '@/modules/mod-example/exampleTwo/database/repositories/repositoryImpl/exampleTwoRepositoryImpl';
 import { LaboratoryRepositoryImpl } from '@/modules/laboratory/database/repositories/repositoryImpl/LaboratoryRepositoryImpl';
 import { CourseRepositoryImpl } from '@/modules/course/database/repositories/repositorylmpl/CourseRepositorylmpl';
+import { scheduleRepositoryImpl } from '@/modules/schedule/database/repositories/repositoryImpl/scheduleRepositoryImpl';
+import { UserRepositoryImpl } from '@/modules/auth/user/database/repositories/impl/typeorm/repositories/UserRepositoryImpl';
 
 
-
-container.register("ExampleOneController", {useClass: ExampleOneControllerImpl});
-container.register("ExampleTwoController", {useClass: ExampleTwoControllerImpl});
 container.register("LaboratoryController", {useClass: LaboratoryControllerImpl});
 container.register("CourseController", {useClass: CourseControllerImpl});
+container.register("scheduleController", {useClass: scheduleControllerImpl});
+container.register("AuthController", {useClass: AuthControllerImpl});
 
-container.register("ExampleOneService", {useClass: ExampleOneServiceImpl});
-container.register("ExampleTwoService", {useClass: ExampleTwoServiceImpl});
 container.register("LaboratoryService", {useClass: LaboratoryServiceImpl});
 container.register("CourseService", {useClass: CourseServiceImpl});
+container.register("scheduleService", {useClass: scheduleServiceImpl});
+container.register("AuthService", {useClass: AuthServiceImpl});
+container.register("UserService", {useClass: UserServiceImpl});
 
-container.register("ExampleOneRepository", {useClass: ExampleOneRepositoryImpl});
-container.register("ExampleTwoRepository", {useClass: ExampleTwoRepositoryImpl});
 container.register("LaboratoryRepository", {useClass: LaboratoryRepositoryImpl});
 container.register("CourseRepository", {useClass: CourseRepositoryImpl});
+container.register("scheduleRepository", {useClass: scheduleRepositoryImpl});
+container.register("UserRepository", {useClass: UserRepositoryImpl});

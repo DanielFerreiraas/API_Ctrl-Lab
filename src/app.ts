@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import "express-async-errors";
 
 import "./config/env/dotenv";
 import "./config/database/typeorm";
