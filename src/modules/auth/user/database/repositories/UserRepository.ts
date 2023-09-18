@@ -8,6 +8,6 @@ import { BaseRepository } from '@/modules/base/BaseRepository';
 
 export interface UserRepository 
     extends BaseRepository<UserDTO, CreateUserDTO, UpdateUserDTO> {
-        getByNumberRegister(numberRegister: number): Promise<UserDTO>;
-        createUser(numberRegister: number, password: string): Promise<UserDTO>;
+        getByNumberRegister(numberRegister: string): Promise<UserDTO>;
+        createUser(numberRegister: string, password: string): Promise<UserDTO>;
     }

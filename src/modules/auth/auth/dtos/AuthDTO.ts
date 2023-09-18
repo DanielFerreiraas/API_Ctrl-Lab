@@ -1,5 +1,5 @@
 export class authDTO {
-    numberRegister: number;
+    numberRegister: string;
     password: string;
 }
 

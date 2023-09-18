@@ -1,7 +1,7 @@
 export class UserDTO {
     id: string;
     // username: string;
-    numberRegister: number;
+    numberRegister: string;
     password: string;
     // type: string;
     // name: string;
