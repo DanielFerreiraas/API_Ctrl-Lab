@@ -1,3 +1,4 @@
+import { schedule } from "@/modules/schedule/database/repositories/entities/schedule.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from "typeorm";
 
 
@@ -14,8 +15,8 @@ export class Course {
 
     @Column()
     period: string;
-
-
     
+    @OneToMany(() => schedule, (schedule) => schedule.courseId)
+    schedules: schedule
 
 }

@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { schedule } from "@/modules/schedule/database/repositories/entities/schedule.entity";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 
 @Entity()
 export class Laboratory {
@@ -20,5 +21,8 @@ export class Laboratory {
 
     @Column()
     hourClose: string;
+
+    @OneToMany(() => schedule, (schedule) => schedule.laboratoryId)
+    schedules: schedule
 
 }
