@@ -1,7 +1,7 @@
+import { User } from "@/modules/auth/user/database/repositories/impl/typeorm/entities/user.entity";
 import { Course } from "@/modules/course/database/repositories/entities/Course.entity";
 import { Laboratory } from "@/modules/laboratory/database/repositories/entities/Laboratory.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
-
 
 @Entity()
 export class schedule {
@@ -20,12 +20,16 @@ export class schedule {
     @Column()
     end: string;
 
-    @ManyToOne(() => Laboratory, (Laboratory) => Laboratory.schedules, {eager: true})
+    @ManyToOne(() => Laboratory, (laboratory) => laboratory.schedules, {eager: true})
     @JoinColumn({name : "laboratory_id"})
     laboratoryId: Laboratory
 
-    @ManyToOne(() => Course, (Course) => Course.schedules, {eager: true})
+    @ManyToOne(() => Course, (course) => course.schedules, {eager: true})
     @JoinColumn({name : "course_id"})
     courseId: Laboratory
+
+    @ManyToOne(() => User, (user) => user.schedules, {eager: true})
+    @JoinColumn({name: "user_id"})
+    user: User
 
 }

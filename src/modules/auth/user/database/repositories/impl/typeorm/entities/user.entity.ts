@@ -1,8 +1,10 @@
+import { schedule } from "@/modules/schedule/database/repositories/entities/schedule.entity";
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   OneToOne,
+  OneToMany,
 } from "typeorm";
 
 @Entity()
@@ -30,5 +32,8 @@ export class User {
 
   // @Column()
   // description: string;
+
+  @OneToMany(() => schedule, (schedule) => schedule.user)
+  schedules: schedule
 
 }
