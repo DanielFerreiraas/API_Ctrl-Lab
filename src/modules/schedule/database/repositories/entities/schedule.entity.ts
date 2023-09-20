@@ -9,9 +9,6 @@ export class schedule {
     id: string;
 
     @Column()
-    userId: string;
-
-    @Column()
     date: string;
 
     @Column()
@@ -30,6 +27,6 @@ export class schedule {
 
     @ManyToOne(() => User, (user) => user.schedules, {eager: true})
     @JoinColumn({name: "user_id"})
-    user: User
+    userId: User
 
 }

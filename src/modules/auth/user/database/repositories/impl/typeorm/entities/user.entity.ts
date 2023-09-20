@@ -33,7 +33,7 @@ export class User {
   // @Column()
   // description: string;
 
-  @OneToMany(() => schedule, (schedule) => schedule.user)
+  @OneToMany(() => schedule, (schedule) => schedule.userId)
   schedules: schedule
 
 }
