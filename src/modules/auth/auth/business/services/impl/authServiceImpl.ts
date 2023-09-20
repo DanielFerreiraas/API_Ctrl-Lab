@@ -19,7 +19,7 @@ export class AuthServiceImpl implements AuthService {
         const userExists = await this.userService.getByNumberRegister(auth.numberRegister);
 
         if (userExists) {
-            throw new Error("this user already exists");
+            throw new Error("this numberRegister already exists");
         }
 
         const newPassword = await AuthHelpers.hash(auth.password)
@@ -41,7 +41,7 @@ export class AuthServiceImpl implements AuthService {
     async signin(auth: authDTO): Promise<tokenDTO> {
         const user = await this.userService.getByNumberRegister(auth.numberRegister);
         if (!user || ! await AuthHelpers.verify(auth.password, user.password)) {
-           throw new Error("username or password doesn't match");
+           throw new Error("numberRegister or password doesn't match");
         }
 
         const token = sign({}, process.env.TK_SECRET, {
