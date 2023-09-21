@@ -12,8 +12,8 @@ export class User {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  // @Column("varchar", { length: 255, unique: true })
-  // username: string;
+  @Column("varchar", { length: 255, unique: true })
+  username: string;
 
   @Column("varchar", { length: 255 })
   numberRegister: string;
@@ -21,17 +21,17 @@ export class User {
   @Column("varchar", { length: 255 })
   password: string;
 
-  // @Column()
-  // type: string;
+  @Column()
+  type: string;
 
-  // @Column()
-  // name: string;
+  @Column()
+  name: string;
 
-  // @Column()
-  // photoLink: string;
+  @Column()
+  photoLink: string;
 
-  // @Column()
-  // description: string;
+  @Column()
+  description: string;
 
   @OneToMany(() => schedule, (schedule) => schedule.userId)
   schedules: schedule
