@@ -1,6 +1,6 @@
-import { authDTO, tokenDTO } from "../../dtos/authDTO";
+import { authDTO, signupDTO, tokenDTO } from "../../dtos/authDTO";
 
 export interface AuthService {
-    signup(user: authDTO): Promise<tokenDTO>;
+    signup(auth: signupDTO): Promise<tokenDTO>;
     signin(auth: authDTO): Promise<tokenDTO>;
 }

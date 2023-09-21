@@ -20,9 +20,15 @@ export class UserRepositoryImpl
 
     }
 
-    async createUser(numberRegister:string, password: string): Promise<UserDTO> {
+    async createUser(numberRegister: string, password: string, username: string, type: string, name: string, photoLink: string, description: string): Promise<UserDTO> {
         const user = this.typeormRepository.create({
-            numberRegister, password
+            numberRegister, 
+            password, 
+            username, 
+            type, 
+            name, 
+            photoLink, 
+            description
         });
 
         return await this.typeormRepository.save(user);

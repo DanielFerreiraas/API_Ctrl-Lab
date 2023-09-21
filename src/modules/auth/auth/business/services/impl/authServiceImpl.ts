@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 import { AuthHelpers } from '@/config/hash/hash';
 
-import { authDTO, tokenDTO } from '../../../dtos/authDTO';
+import { authDTO, signupDTO, tokenDTO } from '../../../dtos/authDTO';
 import { AuthService } from '../authService';
 import { UserService } from '@/modules/auth/user/business/services/UserService';
 import { sign } from 'jsonwebtoken';
@@ -15,7 +15,7 @@ export class AuthServiceImpl implements AuthService {
     ) { }
 
 
-    async signup(auth: authDTO): Promise<tokenDTO> {
+    async signup(auth: signupDTO): Promise<tokenDTO> {
         const userExists = await this.userService.getByNumberRegister(auth.numberRegister);
 
         if (userExists) {
@@ -24,9 +24,14 @@ export class AuthServiceImpl implements AuthService {
 
         const newPassword = await AuthHelpers.hash(auth.password)
 
-        const user = await this.userService.createItem({
+        await this.userService.createItem({
             numberRegister: auth.numberRegister,
-            password: newPassword
+            password: newPassword,
+            username: auth.username,
+            type: auth.type,
+            name: auth.name,
+            photoLink: auth.photoLink,
+            description: auth.description
         })
 
         const token = await this.signin({
