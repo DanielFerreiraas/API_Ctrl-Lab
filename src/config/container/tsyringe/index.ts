@@ -4,6 +4,7 @@ import { LaboratoryControllerImpl } from '@/modules/laboratory/api/controllers/c
 import { CourseControllerImpl } from '@/modules/course/api/controllers/controllerImpl/CourseControllerImpl';
 import { scheduleControllerImpl } from '@/modules/schedule/api/controllers/controllerImpl/scheduleControllerImpl';
 import { AuthControllerImpl } from '@/modules/auth/auth/api/controllers/impl/authControllerImpl';
+import { UserControllerImpl } from '@/modules/auth/user/api/controllers/impl/userControllerImpl';
 
 import { LaboratoryServiceImpl } from '@/modules/laboratory/business/services/serviceImpl/LaboratoryServiceImpl';
 import { CourseServiceImpl } from '@/modules/course/business/services/serviceImpl/CourseServiceImpl';
@@ -21,6 +22,7 @@ container.register("LaboratoryController", {useClass: LaboratoryControllerImpl})
 container.register("CourseController", {useClass: CourseControllerImpl});
 container.register("scheduleController", {useClass: scheduleControllerImpl});
 container.register("AuthController", {useClass: AuthControllerImpl});
+container.register("UserController", {useClass: UserControllerImpl});
 
 container.register("LaboratoryService", {useClass: LaboratoryServiceImpl});
 container.register("CourseService", {useClass: CourseServiceImpl});
