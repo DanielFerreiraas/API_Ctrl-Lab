@@ -1,7 +1,7 @@
 export class CourseDTO {
     id: string;
     name: string;
-    idClass: string;
+    idClass?: string;
     period: string;
 };
 

@@ -10,7 +10,7 @@ export class Course {
     @Column()
     name: string;
 
-    @Column()
+    @Column({nullable: true})
     idClass: string;
 
     @Column()
