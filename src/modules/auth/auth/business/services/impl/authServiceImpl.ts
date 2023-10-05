@@ -1,5 +1,4 @@
 import { injectable, inject } from 'tsyringe';
-import { AuthHelpers } from '@/config/hash/hash';
 
 import { authDTO, signupDTO, tokenDTO } from '../../../dtos/authDTO';
 import { AuthService } from '../authService';
@@ -25,11 +24,8 @@ export class AuthServiceImpl implements AuthService {
             throw new Error("this numberRegister already exists");
         }
 
-        const newPassword = await AuthHelpers.hash(auth.password)
-
         await this.userService.createItem({
             numberRegister: auth.numberRegister,
-            password: newPassword,
             password: passwordFacade.hash(auth.password),
             username: auth.username,
             type: auth.type,
@@ -38,31 +34,18 @@ export class AuthServiceImpl implements AuthService {
             description: auth.description
         })
 
-        const token = await this.signin({
-            numberRegister: auth.numberRegister,
-            password: auth.password
-        });
-
-
-        return token;
+        return this,this.signin(auth);
     }
 
     async signin(auth: authDTO): Promise<tokenDTO> {
         const user = await this.userService.getByNumberRegister(auth.numberRegister);
-        if (!user || ! await AuthHelpers.verify(auth.password, user.password)) {
+
         if (!user || !passwordFacade.compare(auth.password, user.password)) {
            throw new Error("numberRegister or password doesn't match");
         }
 
-        const token = sign({}, process.env.TK_SECRET, {
-            subject: user.id,
-            expiresIn: '1d'
-        });
         const simpleUser = JSON.parse(JSON.stringify(user));
 
-        return {
-            token
-        }
         return { token: await JWTFacade.sign(simpleUser, { expiresIn: TOKEN_EXPIRATION }) };
     }
 
