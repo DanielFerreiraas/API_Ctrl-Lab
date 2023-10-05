@@ -5,6 +5,8 @@ import { authDTO, signupDTO, tokenDTO } from '../../../dtos/authDTO';
 import { AuthService } from '../authService';
 import { UserService } from '@/modules/auth/user/business/services/UserService';
 import { sign } from 'jsonwebtoken';
+import JWTFacade from '@/shared/facades/TokenFacade';
+import { TOKEN_EXPIRATION } from '@/config/env/dotenv';
 
 @injectable()
 export class AuthServiceImpl implements AuthService {
@@ -57,6 +59,7 @@ export class AuthServiceImpl implements AuthService {
         return {
             token
         }
+        return { token: await JWTFacade.sign(simpleUser, { expiresIn: TOKEN_EXPIRATION }) };
     }
 
 
