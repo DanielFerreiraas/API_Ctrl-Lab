@@ -13,6 +13,11 @@ export class BaseControllerImpl<T, U, V> implements BaseController {
         private baseService: BaseService<T, U, V>
     ) {}
     
+    public async countItems(req: Request, res: Response): Promise<Response>{
+        const items = await this.baseService.countItems();
+        return res.json(items);
+    }
+
     public async getItems(req: Request, res: Response): Promise<Response> {
         const items = await this.baseService.getItems();
         return res.json(items);

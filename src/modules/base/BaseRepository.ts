@@ -1,4 +1,5 @@
 export interface BaseRepository<T, U, V> {
+    countItems(): Promise<number>,
     getItems(): Promise<T[]>;
     getItemById(id: string): Promise<T>;
     getItemByField(field: string, value: string): Promise<T>;
