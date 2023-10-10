@@ -12,7 +12,7 @@ const router = Router();
 
 router.use('/auth', authRouter);
 
-router.use(ensureIsAuthenticated);
+// router.use(ensureIsAuthenticated);
 router.use('/user', UserRouter);
 router.use('/laboratory', LaboratoryRouter);
 router.use('/course', CourseRouter);

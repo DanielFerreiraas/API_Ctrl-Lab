@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
 export interface BaseController {
+    countItems(req: Request, res: Response): Promise<Response>;
     getItems(req: Request, res: Response): Promise<Response>;
     getItemById(req: Request, res: Response): Promise<Response>;
     getItemByField(req: Request, res: Response): Promise<Response>;

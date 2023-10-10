@@ -12,6 +12,10 @@ BaseService<T, U, V> {
         private baseRepository: BaseRepository<T, U , V>
     ) {}
 
+    async countItems(): Promise<number> {
+        return this.baseRepository.countItems();
+    }
+
     async getItems(): Promise<T[]> {
         return this.baseRepository.getItems();
     }

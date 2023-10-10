@@ -14,6 +14,10 @@ export class BaseRepositoryImpl<T, U, V> implements BaseRepository<T, U, V> {
         this.typeormRepository = dataSource.getRepository(entityType);
     }
 
+    async countItems(): Promise<number> {
+        return await this.typeormRepository.count();
+    }
+
     async getItems(): Promise<T[]> {
         return await this.typeormRepository.find();
     }
