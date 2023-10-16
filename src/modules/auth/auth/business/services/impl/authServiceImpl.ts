@@ -1,10 +1,11 @@
 import { injectable, inject } from 'tsyringe';
 
-import { authDTO, signupDTO, tokenDTO } from '../../../dtos/authDTO';
+import { authDTO, signupDTO, tokenDTO } from '../../../dtos/AuthDTO';
 import { AuthService } from '../authService';
 import passwordFacade from '../../facedes/PasswordFacade';
 import { UserService } from '@/modules/auth/user/business/services/UserService';
 import { sign } from 'jsonwebtoken';
+import bcrypt from "bcrypt";
 import JWTFacade from '@/shared/facades/TokenFacade';
 import { TOKEN_EXPIRATION } from '@/config/env/dotenv';
 
@@ -39,15 +40,18 @@ export class AuthServiceImpl implements AuthService {
 
     async signin(auth: authDTO): Promise<tokenDTO> {
         const user = await this.userService.getByNumberRegister(auth.numberRegister);
-
-        if (!user || !passwordFacade.compare(auth.password, user.password)) {
+        if (!user || ! await bcrypt.compareSync(auth.password, user.password)) {
            throw new Error("numberRegister or password doesn't match");
         }
 
-        const simpleUser = JSON.parse(JSON.stringify(user));
+        const token = sign({}, process.env.TK_SECRET, {
+            subject: user.id,
+            expiresIn: '1d'
+        });
 
-        return { token: await JWTFacade.sign(simpleUser, { expiresIn: TOKEN_EXPIRATION }) };
+        return {
+            token
+        }
     }
-
 
 }
