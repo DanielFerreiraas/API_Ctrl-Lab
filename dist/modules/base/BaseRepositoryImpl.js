@@ -19,21 +19,27 @@ class BaseRepositoryImpl {
         this.primaryKey = primaryKey;
         this.typeormRepository = data_source_1.default.getRepository(entityType);
     }
-    ;
+    countItems() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield this.typeormRepository.count();
+        });
+    }
     getItems() {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.typeormRepository.find();
         });
     }
-    ;
     getItemById(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this.typeormRepository.findOne({
+            const item = yield this.typeormRepository.findOne({
                 where: { [this.primaryKey]: id }
             });
+            if (!item) {
+                throw new Error(`Register not found!`);
+            }
+            return item;
         });
     }
-    ;
     getItemByField(field, value) {
         return __awaiter(this, void 0, void 0, function* () {
             const item = this.typeormRepository.findOne({
@@ -52,20 +58,17 @@ class BaseRepositoryImpl {
             return yield this.typeormRepository.save(newItem);
         });
     }
-    ;
     updateItem(id, item) {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.typeormRepository.update(id, item);
             return yield this.getItemById(id);
         });
     }
-    ;
     deleteItem(id) {
         return __awaiter(this, void 0, void 0, function* () {
             const item = yield this.getItemById(id);
             yield this.typeormRepository.delete(id);
         });
     }
-    ;
 }
 exports.BaseRepositoryImpl = BaseRepositoryImpl;

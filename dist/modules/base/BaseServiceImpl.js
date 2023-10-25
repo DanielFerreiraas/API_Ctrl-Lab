@@ -27,6 +27,11 @@ let BaseServiceImpl = exports.BaseServiceImpl = class BaseServiceImpl {
     constructor(baseRepository) {
         this.baseRepository = baseRepository;
     }
+    countItems() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.baseRepository.countItems();
+        });
+    }
     getItems() {
         return __awaiter(this, void 0, void 0, function* () {
             return this.baseRepository.getItems();

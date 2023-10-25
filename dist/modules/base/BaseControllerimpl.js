@@ -27,6 +27,12 @@ let BaseControllerImpl = exports.BaseControllerImpl = class BaseControllerImpl {
     constructor(baseService) {
         this.baseService = baseService;
     }
+    countItems(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const items = yield this.baseService.countItems();
+            return res.json(items);
+        });
+    }
     getItems(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const items = yield this.baseService.getItems();

@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import { ensureIsAuthenticated } from '../middlewares/AuthMiddleware';
 
+import FilePicturesRouter from "@/modules/filePictures/api/routes/FilePictures.routes";
 import LaboratoryRouter from '@/modules/laboratory/api/routes/Laboratory.routes';
 import CourseRouter from '@/modules/course/api/routes/Course.routes';
 import scheduleRouter from '@/modules/schedule/api/routes/schedule.routes';
@@ -13,6 +14,8 @@ const router = Router();
 router.use('/auth', authRouter);
 
 // router.use(ensureIsAuthenticated);
+
+router.use('/pictures', FilePicturesRouter);
 router.use('/user', UserRouter);
 router.use('/laboratory', LaboratoryRouter);
 router.use('/course', CourseRouter);

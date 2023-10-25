@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Laboratory = void 0;
+const schedule_entity_1 = require("@/modules/schedule/database/repositories/entities/schedule.entity");
 const typeorm_1 = require("typeorm");
 let Laboratory = exports.Laboratory = class Laboratory {
 };
@@ -37,6 +38,10 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], Laboratory.prototype, "hourClose", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => schedule_entity_1.schedule, (schedule) => schedule.laboratoryId),
+    __metadata("design:type", schedule_entity_1.schedule)
+], Laboratory.prototype, "schedules", void 0);
 exports.Laboratory = Laboratory = __decorate([
     (0, typeorm_1.Entity)()
 ], Laboratory);

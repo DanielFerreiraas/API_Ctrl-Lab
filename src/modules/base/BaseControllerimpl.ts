@@ -3,7 +3,6 @@ import { Request, Response } from 'express';
 
 import { BaseController } from './BaseController';
 import { BaseService } from './BaseService';
-import { stringify } from 'querystring';
 
 @injectable()
 export class BaseControllerImpl<T, U, V> implements BaseController {

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const baseRoutes = (controller) => {
     const router = (0, express_1.Router)();
+    router.get('/count', (req, res) => controller.countItems(req, res));
     router.get('/', (req, res) => controller.getItems(req, res));
     router.get('/:id', (req, res) => controller.getItemById(req, res));
     router.get('/:field/:value', (req, res) => controller.getItemByField(req, res));
