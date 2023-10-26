@@ -23,6 +23,7 @@
     "typeorm-naming-strategies": "^4.1.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.15",
     "@types/express": "^4.17.17",
     "@types/multer": "^1.4.9",
     "@types/node": "^20.2.5",
