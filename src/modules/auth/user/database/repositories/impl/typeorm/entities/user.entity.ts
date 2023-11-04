@@ -7,6 +7,11 @@ import {
   OneToMany,
 } from "typeorm";
 
+export enum types {
+  Administrador = "Administrador",
+  Professor = "Professor",
+}
+
 @Entity()
 export class User {
   @PrimaryGeneratedColumn("uuid")
@@ -21,8 +26,11 @@ export class User {
   @Column("varchar", { length: 255 })
   password: string;
 
-  @Column()
-  type: string;
+  @Column({
+    type: "enum",
+    enum: types,
+  })
+  type: types;
 
   @Column()
   name: string;
