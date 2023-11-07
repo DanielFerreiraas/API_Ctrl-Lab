@@ -1,3 +1,3 @@
 # API_Ctrl-Lab
 
-- Esta é a API do servidor do control + Lab
+- Seja bem vindo, Esta é a API do servidor do control + Lab
