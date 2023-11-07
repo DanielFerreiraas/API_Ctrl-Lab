@@ -21,50 +21,27 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BaseServiceImpl = void 0;
+exports.AuthControllerImpl = void 0;
 const tsyringe_1 = require("tsyringe");
-let BaseServiceImpl = exports.BaseServiceImpl = class BaseServiceImpl {
-    constructor(baseRepository) {
-        this.baseRepository = baseRepository;
+let AuthControllerImpl = exports.AuthControllerImpl = class AuthControllerImpl {
+    constructor(authService) {
+        this.authService = authService;
     }
-    countItems() {
+    signin(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.countItems();
+            const user = yield this.authService.signin(req.body);
+            return res.json(user);
         });
     }
-    getItems() {
+    signup(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItems();
-        });
-    }
-    getItemById(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItemById(id);
-        });
-    }
-    getItemByField(field, value) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItemByField(field, value);
-        });
-    }
-    createItem(item) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.createItem(item);
-        });
-    }
-    updateItem(id, item) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.updateItem(id, item);
-        });
-    }
-    deleteItem(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.deleteItem(id);
+            const auth = yield this.authService.signup(req.body);
+            return res.json(auth);
         });
     }
 };
-exports.BaseServiceImpl = BaseServiceImpl = __decorate([
+exports.AuthControllerImpl = AuthControllerImpl = __decorate([
     (0, tsyringe_1.injectable)(),
-    __param(0, (0, tsyringe_1.inject)('BaseRepository')),
+    __param(0, (0, tsyringe_1.inject)('AuthService')),
     __metadata("design:paramtypes", [Object])
-], BaseServiceImpl);
+], AuthControllerImpl);

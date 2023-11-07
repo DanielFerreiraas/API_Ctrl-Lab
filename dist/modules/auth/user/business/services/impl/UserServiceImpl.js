@@ -21,50 +21,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BaseServiceImpl = void 0;
+exports.UserServiceImpl = void 0;
 const tsyringe_1 = require("tsyringe");
-let BaseServiceImpl = exports.BaseServiceImpl = class BaseServiceImpl {
-    constructor(baseRepository) {
-        this.baseRepository = baseRepository;
+const BaseServiceImpl_1 = require("@/modules/base/BaseServiceImpl");
+let UserServiceImpl = exports.UserServiceImpl = class UserServiceImpl extends BaseServiceImpl_1.BaseServiceImpl {
+    constructor(userRepository) {
+        super(userRepository);
+        this.userRepository = userRepository;
     }
-    countItems() {
+    getByNumberRegister(numberRegister) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.countItems();
-        });
-    }
-    getItems() {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItems();
-        });
-    }
-    getItemById(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItemById(id);
-        });
-    }
-    getItemByField(field, value) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItemByField(field, value);
-        });
-    }
-    createItem(item) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.createItem(item);
-        });
-    }
-    updateItem(id, item) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.updateItem(id, item);
-        });
-    }
-    deleteItem(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.deleteItem(id);
+            return this.userRepository.getByNumberRegister(numberRegister);
         });
     }
 };
-exports.BaseServiceImpl = BaseServiceImpl = __decorate([
+exports.UserServiceImpl = UserServiceImpl = __decorate([
     (0, tsyringe_1.injectable)(),
-    __param(0, (0, tsyringe_1.inject)('BaseRepository')),
+    __param(0, (0, tsyringe_1.inject)('UserRepository')),
     __metadata("design:paramtypes", [Object])
-], BaseServiceImpl);
+], UserServiceImpl);

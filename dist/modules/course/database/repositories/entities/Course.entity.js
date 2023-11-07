@@ -9,39 +9,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Laboratory = void 0;
+exports.Course = void 0;
 const schedule_entity_1 = require("@/modules/schedule/database/repositories/entities/schedule.entity");
 const typeorm_1 = require("typeorm");
-let Laboratory = exports.Laboratory = class Laboratory {
+let Course = exports.Course = class Course {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
-], Laboratory.prototype, "id", void 0);
+], Course.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Laboratory.prototype, "name", void 0);
+], Course.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Course.prototype, "idClass", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], Laboratory.prototype, "photoLink", void 0);
+], Course.prototype, "period", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], Laboratory.prototype, "location", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], Laboratory.prototype, "hourOpen", void 0);
-__decorate([
-    (0, typeorm_1.Column)(),
-    __metadata("design:type", String)
-], Laboratory.prototype, "hourClose", void 0);
-__decorate([
-    (0, typeorm_1.OneToMany)(() => schedule_entity_1.schedule, (schedule) => schedule.laboratoryId),
+    (0, typeorm_1.OneToMany)(() => schedule_entity_1.schedule, (schedule) => schedule.courseId),
     __metadata("design:type", schedule_entity_1.schedule)
-], Laboratory.prototype, "schedules", void 0);
-exports.Laboratory = Laboratory = __decorate([
+], Course.prototype, "schedules", void 0);
+exports.Course = Course = __decorate([
     (0, typeorm_1.Entity)()
-], Laboratory);
+], Course);

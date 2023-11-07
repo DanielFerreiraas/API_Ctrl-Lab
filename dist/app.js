@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 require("reflect-metadata");
+require("express-async-errors");
 require("./config/env/dotenv");
 require("./config/database/typeorm");
 require("./config/container/tsyringe");

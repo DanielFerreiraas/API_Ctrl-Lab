@@ -20,51 +20,52 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BaseServiceImpl = void 0;
+exports.AuthServiceImpl = void 0;
 const tsyringe_1 = require("tsyringe");
-let BaseServiceImpl = exports.BaseServiceImpl = class BaseServiceImpl {
-    constructor(baseRepository) {
-        this.baseRepository = baseRepository;
+const PasswordFacade_1 = __importDefault(require("../../facedes/PasswordFacade"));
+const jsonwebtoken_1 = require("jsonwebtoken");
+const bcrypt_1 = __importDefault(require("bcrypt"));
+const GenerateFacade_1 = __importDefault(require("../../facedes/GenerateFacade"));
+let AuthServiceImpl = exports.AuthServiceImpl = class AuthServiceImpl {
+    constructor(userService) {
+        this.userService = userService;
     }
-    countItems() {
+    signup(auth) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.countItems();
+            yield this.userService.createItem({
+                numberRegister: GenerateFacade_1.default.generateNumberRegister(),
+                password: PasswordFacade_1.default.hash(auth.password),
+                username: auth.username,
+                type: auth.type,
+                name: auth.name,
+                photoLink: auth.photoLink,
+                description: auth.description
+            });
+            return this, this.signin(auth);
         });
     }
-    getItems() {
+    signin(auth) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItems();
-        });
-    }
-    getItemById(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItemById(id);
-        });
-    }
-    getItemByField(field, value) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.getItemByField(field, value);
-        });
-    }
-    createItem(item) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.createItem(item);
-        });
-    }
-    updateItem(id, item) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.updateItem(id, item);
-        });
-    }
-    deleteItem(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return this.baseRepository.deleteItem(id);
+            const user = yield this.userService.getByNumberRegister(auth.numberRegister);
+            if (!user || !(yield bcrypt_1.default.compareSync(auth.password, user.password))) {
+                throw new Error("numberRegister or password doesn't match");
+            }
+            const token = (0, jsonwebtoken_1.sign)({}, process.env.TK_SECRET, {
+                subject: user.id,
+                expiresIn: '1d'
+            });
+            return {
+                token
+            };
         });
     }
 };
-exports.BaseServiceImpl = BaseServiceImpl = __decorate([
+exports.AuthServiceImpl = AuthServiceImpl = __decorate([
     (0, tsyringe_1.injectable)(),
-    __param(0, (0, tsyringe_1.inject)('BaseRepository')),
+    __param(0, (0, tsyringe_1.inject)('UserService')),
     __metadata("design:paramtypes", [Object])
-], BaseServiceImpl);
+], AuthServiceImpl);
