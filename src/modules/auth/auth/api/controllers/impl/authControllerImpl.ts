@@ -2,7 +2,7 @@ import { injectable, inject } from 'tsyringe';
 
 import { Request, Response } from 'express';
 import { AuthService } from '../../../business/services/authService';   
-import { AuthController } from '@/modules/auth/auth/api/controllers/authController'
+import { AuthController } from "../authController";
 import { authDTO, signupDTO } from '../../../dtos/AuthDTO';
 
 
