@@ -1,6 +1,6 @@
-import { User } from "@/modules/auth/user/database/repositories/impl/typeorm/entities/user.entity";
-import { Course } from "@/modules/course/database/repositories/entities/Course.entity";
-import { Laboratory } from "@/modules/laboratory/database/repositories/entities/Laboratory.entity";
+import { User } from "../../../../../modules/auth/user/database/repositories/impl/typeorm/entities/user.entity";
+import { Course } from "../../../../../modules/course/database/repositories/entities/Course.entity";
+import { Laboratory } from "../../../../../modules/laboratory/database/repositories/entities/Laboratory.entity";
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
 
 @Entity()

@@ -1,10 +1,10 @@
 import { injectable, inject } from "tsyringe";
 
-import { BaseControllerImpl } from "@/modules/base/BaseControllerimpl";
+import { BaseControllerImpl } from "../../../../../modules/base/BaseControllerimpl";
 
-import { CourseDTO, CreatecourseDTO, UpdatecourseDTO } from "@/modules/course/dtos/CourseDTO";
+import { CourseDTO, CreatecourseDTO, UpdatecourseDTO } from "../../../../../modules/course/dtos/CourseDTO";
 
-import { CourseService } from "@/modules/course/business/services/CourseService";
+import { CourseService } from "../../../../../modules/course/business/services/CourseService";
 
 @injectable()
 export class CourseControllerImpl extends BaseControllerImpl<CourseDTO, CreatecourseDTO, UpdatecourseDTO> {

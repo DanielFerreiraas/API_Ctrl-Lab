@@ -8,7 +8,7 @@ import "./config/container/tsyringe";
 import express from "express";
 import cors from "cors";
 
-import router from '@/shared/api/routes';
+import router from './shared/api/routes';
 
 const app = express();
 

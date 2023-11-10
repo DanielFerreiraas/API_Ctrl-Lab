@@ -1,10 +1,10 @@
 import { inject, injectable } from "tsyringe";
 
-import { LaboratoryService } from "@/modules/laboratory/business/services/LaboratoryService";
+import { LaboratoryService } from "../../../../../modules/laboratory/business/services/LaboratoryService";
 
-import { BaseControllerImpl } from "@/modules/base/BaseControllerimpl";
+import { BaseControllerImpl } from "../../../../../modules/base/BaseControllerimpl";
 
-import { CreateLaboratoryDTO, LaboratoryDTO, UpdateLaboratoryDTO } from "@/modules/laboratory/dtos/LaboratoryDTO";
+import { CreateLaboratoryDTO, LaboratoryDTO, UpdateLaboratoryDTO } from "../../../../../modules/laboratory/dtos/LaboratoryDTO";
 
 @injectable()
 export class LaboratoryControllerImpl 

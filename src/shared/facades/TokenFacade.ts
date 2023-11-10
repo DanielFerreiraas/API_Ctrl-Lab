@@ -1,4 +1,4 @@
-import { ACCESS_SECRET, REFRESH_SECRET } from "@/config/env/dotenv";
+import { ACCESS_SECRET, REFRESH_SECRET } from "../../config/env/dotenv";
 
 import jwt from "jsonwebtoken";
 

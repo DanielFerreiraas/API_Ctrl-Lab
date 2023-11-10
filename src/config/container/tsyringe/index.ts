@@ -1,21 +1,21 @@
 import { container } from 'tsyringe';
 
-import { LaboratoryControllerImpl } from '@/modules/laboratory/api/controllers/controllerImpl/LaboratoryControllerImpl';
-import { CourseControllerImpl } from '@/modules/course/api/controllers/controllerImpl/CourseControllerImpl';
-import { scheduleControllerImpl } from '@/modules/schedule/api/controllers/controllerImpl/scheduleControllerImpl';
-import { AuthControllerImpl } from '@/modules/auth/auth/api/controllers/impl/authControllerImpl';
-import { UserControllerImpl } from '@/modules/auth/user/api/controllers/impl/userControllerImpl';
+import { LaboratoryControllerImpl } from '../../../modules/laboratory/api/controllers/controllerImpl/LaboratoryControllerImpl';
+import { CourseControllerImpl } from '../../../modules/course/api/controllers/controllerImpl/CourseControllerImpl';
+import { scheduleControllerImpl } from '../../../modules/schedule/api/controllers/controllerImpl/scheduleControllerImpl';
+import { AuthControllerImpl } from '../../../modules/auth/auth/api/controllers/impl/authControllerImpl';
+import { UserControllerImpl } from '../../../modules/auth/user/api/controllers/impl/userControllerImpl';
 
-import { LaboratoryServiceImpl } from '@/modules/laboratory/business/services/serviceImpl/LaboratoryServiceImpl';
-import { CourseServiceImpl } from '@/modules/course/business/services/serviceImpl/CourseServiceImpl';
-import { scheduleServiceImpl } from '@/modules/schedule/business/services/serviceImpl/scheduleServiceImpl';
-import { AuthServiceImpl } from '@/modules/auth/auth/business/services/impl/authServiceImpl';
-import { UserServiceImpl } from '@/modules/auth/user/business/services/impl/UserServiceImpl';
+import { LaboratoryServiceImpl } from '../../../modules/laboratory/business/services/serviceImpl/LaboratoryServiceImpl';
+import { CourseServiceImpl } from '../../../modules/course/business/services/serviceImpl/CourseServiceImpl';
+import { scheduleServiceImpl } from '../../../modules/schedule/business/services/serviceImpl/scheduleServiceImpl';
+import { AuthServiceImpl } from '../../../modules/auth/auth/business/services/impl/authServiceImpl';
+import { UserServiceImpl } from '../../../modules/auth/user/business/services/impl/UserServiceImpl';
 
-import { LaboratoryRepositoryImpl } from '@/modules/laboratory/database/repositories/repositoryImpl/LaboratoryRepositoryImpl';
-import { CourseRepositoryImpl } from '@/modules/course/database/repositories/repositorylmpl/CourseRepositorylmpl';
-import { scheduleRepositoryImpl } from '@/modules/schedule/database/repositories/repositoryImpl/scheduleRepositoryImpl';
-import { UserRepositoryImpl } from '@/modules/auth/user/database/repositories/impl/typeorm/repositories/UserRepositoryImpl';
+import { LaboratoryRepositoryImpl } from '../../../modules/laboratory/database/repositories/repositoryImpl/LaboratoryRepositoryImpl';
+import { CourseRepositoryImpl } from '../../../modules/course/database/repositories/repositorylmpl/CourseRepositorylmpl';
+import { scheduleRepositoryImpl } from '../../../modules/schedule/database/repositories/repositoryImpl/scheduleRepositoryImpl';
+import { UserRepositoryImpl } from '../../../modules/auth/user/database/repositories/impl/typeorm/repositories/UserRepositoryImpl';
 
 
 container.register("LaboratoryController", {useClass: LaboratoryControllerImpl});

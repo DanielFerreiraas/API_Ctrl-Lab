@@ -3,7 +3,7 @@ import { injectable, inject } from 'tsyringe';
 import { authDTO, signupDTO, tokenDTO } from '../../../dtos/AuthDTO';
 import { AuthService } from '../authService';
 import passwordFacade from '../../facedes/PasswordFacade';
-import { UserService } from '@/modules/auth/user/business/services/UserService';
+import { UserService } from '../../../../user/business/services/UserService';
 import { sign } from 'jsonwebtoken';
 import bcrypt from "bcrypt";
 import GeneratedNumerRegister from '../../facedes/GenerateFacade';

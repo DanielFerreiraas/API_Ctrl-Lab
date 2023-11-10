@@ -3,7 +3,7 @@ import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity
 
 import { BaseRepository } from './BaseRepository';
 
-import dataSource from '@/config/database/typeorm/data-source';
+import dataSource from '../../config/database/typeorm/data-source';
 
 export class BaseRepositoryImpl<T, U, V> implements BaseRepository<T, U, V> {
     private primaryKey: keyof T;

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 
-import JWTFacade from "@/shared/facades/TokenFacade";
+import JWTFacade from "../../../shared/facades/TokenFacade";
 
 export const ensureIsAuthenticated = (req: Request, res: Response, next: NextFunction) => {
 

@@ -1,4 +1,4 @@
-import { BaseControllerImpl } from "@/modules/base/BaseControllerimpl";
+import { BaseControllerImpl } from "../../../../../../modules/base/BaseControllerimpl";
 import { CreateUserDTO, UpdateUserDTO, UserDTO } from "../../../dtos/UserDTO";
 import { inject, injectable } from "tsyringe";
 import { UserController } from "../userController";

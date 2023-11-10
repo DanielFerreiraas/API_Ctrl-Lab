@@ -1,4 +1,4 @@
-import { BaseService } from "@/modules/base/BaseService";
+import { BaseService } from "../../../../modules/base/BaseService";
 
 import { scheduleDTO, CreatescheduleDTO, UpdatescheduleDTO } from "../../dtos/scheduleDTO";
 

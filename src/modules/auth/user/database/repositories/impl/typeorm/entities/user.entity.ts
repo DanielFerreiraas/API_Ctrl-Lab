@@ -1,4 +1,4 @@
-import { schedule } from "@/modules/schedule/database/repositories/entities/schedule.entity";
+import { schedule } from "../../../../../../../../modules/schedule/database/repositories/entities/schedule.entity";
 import {
   Entity,
   Column,

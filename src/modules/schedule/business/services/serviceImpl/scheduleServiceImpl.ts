@@ -1,6 +1,6 @@
 import { injectable, inject } from "tsyringe";
 
-import { BaseServiceImpl } from "@/modules/base/BaseServiceImpl";
+import { BaseServiceImpl } from "../../../../../modules/base/BaseServiceImpl";
 
 import { scheduleDTO, CreatescheduleDTO, UpdatescheduleDTO } from "../../../dtos/scheduleDTO";
 
