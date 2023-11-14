@@ -20,9 +20,10 @@ export class UserRepositoryImpl
 
     }
 
-    async createUser(numberRegister: string, password: string, username: string, type: string, name: string, photoLink: string, description: string): Promise<UserDTO> {
+    async createUser(numberRegister: string, idPictures:number, password: string, username: string, type: string, name: string, photoLink: string, description: string): Promise<UserDTO> {
         const user = this.typeormRepository.create({
-            numberRegister, 
+            numberRegister,
+            idPictures, 
             password, 
             username, 
             type, 

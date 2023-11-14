@@ -1,5 +1,6 @@
 export class signupDTO {
     numberRegister: string;
+    idPictures: number;
     password: string;
     username: string;
     type: string;

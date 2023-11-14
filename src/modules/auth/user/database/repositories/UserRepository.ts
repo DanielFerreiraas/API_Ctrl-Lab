@@ -10,7 +10,8 @@ export interface UserRepository
     extends BaseRepository<UserDTO, CreateUserDTO, UpdateUserDTO> {
         getByNumberRegister(numberRegister: string): Promise<UserDTO>;
         createUser(
-            numberRegister: string, 
+            numberRegister: string,
+            idPictures: number,
             password: string, 
             username: string, 
             type: string, 
