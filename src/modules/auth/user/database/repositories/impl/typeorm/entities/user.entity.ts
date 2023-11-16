@@ -1,3 +1,4 @@
+import { Pictures } from "@/modules/pictures/database/repositories/entities/Pictures.entity";
 import { schedule } from "../../../../../../../../modules/schedule/database/repositories/entities/schedule.entity";
 import {
   Entity,
@@ -5,6 +6,8 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   OneToMany,
+  JoinColumn,
+  ManyToOne,
 } from "typeorm";
 
 export enum types {
@@ -46,5 +49,9 @@ export class User {
 
   @OneToMany(() => schedule, (schedule) => schedule.userId)
   schedules: schedule
+
+  @ManyToOne(() => Pictures, (pictures) => pictures.user, {eager: true})
+  @JoinColumn({name: "pictures_id"})
+  picturesId: Pictures
 
 }
