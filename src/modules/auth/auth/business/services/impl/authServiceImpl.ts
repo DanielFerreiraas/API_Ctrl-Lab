@@ -21,7 +21,6 @@ export class AuthServiceImpl implements AuthService {
 
         await this.userService.createItem({
             numberRegister: GeneratedNumerRegister.generateNumberRegister(),
-            idPictures: auth.idPictures,
             password: passwordFacade.hash(auth.password),
             username: auth.username, 
             type: auth.type,

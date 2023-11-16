@@ -20,9 +20,6 @@ export class User {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
-  idPictures: number;
-
   @Column("varchar", { length: 255, unique: true })
   username: string;
 

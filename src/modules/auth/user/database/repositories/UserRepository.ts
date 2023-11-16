@@ -11,7 +11,6 @@ export interface UserRepository
         getByNumberRegister(numberRegister: string): Promise<UserDTO>;
         createUser(
             numberRegister: string,
-            idPictures: number,
             password: string, 
             username: string, 
             type: string, 
