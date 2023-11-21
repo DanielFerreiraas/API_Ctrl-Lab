@@ -1,5 +1,6 @@
+import { Pictures } from "@/modules/pictures/database/repositories/entities/Pictures.entity";
 import { schedule } from "../../../../../modules/schedule/database/repositories/entities/schedule.entity";
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from "typeorm";
 
 @Entity()
 export class Laboratory {
@@ -24,5 +25,9 @@ export class Laboratory {
 
     @OneToMany(() => schedule, (schedule) => schedule.laboratoryId)
     schedules: schedule
+
+    @ManyToOne(() => Pictures, (pictures) => pictures.laboratory, {eager: true})
+    @JoinColumn({name: "pictures_id"})
+    picturesId: Pictures
 
 }

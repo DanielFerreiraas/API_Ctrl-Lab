@@ -7,5 +7,5 @@ import {
 
 export interface UserService 
     extends BaseService<UserDTO, CreateUserDTO, UpdateUserDTO> {
-        getByNumberRegister(numberRegister: string): Promise<UserDTO>;
+        getByNumberRegister(numberRegister: number): Promise<UserDTO>;
 }

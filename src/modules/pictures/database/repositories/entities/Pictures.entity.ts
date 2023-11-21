@@ -1,4 +1,5 @@
 import { User } from "@/modules/auth/user/database/repositories/impl/typeorm/entities/user.entity";
+import { Laboratory } from "@/modules/laboratory/database/repositories/entities/Laboratory.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, OneToOne } from "typeorm";
 
 @Entity()
@@ -10,6 +11,6 @@ export class Pictures {
     @Column()
     src: string;
 
-    @OneToMany(() => User, (user) => user.picturesId)
-    user: User
+    @OneToMany(() => Laboratory, (laboratory) => laboratory.picturesId)
+    laboratory: Laboratory
 }

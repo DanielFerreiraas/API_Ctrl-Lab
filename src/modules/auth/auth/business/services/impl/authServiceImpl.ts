@@ -6,7 +6,6 @@ import passwordFacade from '../../facedes/PasswordFacade';
 import { UserService } from '../../../../user/business/services/UserService';
 import { sign } from 'jsonwebtoken';
 import bcrypt from "bcrypt";
-import GeneratedNumerRegister from '../../facedes/GenerateFacade';
 
 @injectable()
 export class AuthServiceImpl implements AuthService {
@@ -20,7 +19,7 @@ export class AuthServiceImpl implements AuthService {
     async signup(auth: signupDTO): Promise<tokenDTO> {
 
         await this.userService.createItem({
-            numberRegister: GeneratedNumerRegister.generateNumberRegister(),
+            numberRegister: auth.numberRegister,
             password: passwordFacade.hash(auth.password),
             username: auth.username, 
             type: auth.type,

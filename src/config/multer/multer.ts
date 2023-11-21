@@ -1,6 +1,6 @@
 import multer, { StorageEngine } from "multer";
 import path from "path";
-import express, { Request, Response } from "express"; // Adicionando a importação de Response
+import { Request, Response } from "express"; // Adicionando a importação de Response
 import { Pictures } from "@/modules/pictures/database/repositories/entities/Pictures.entity";
 import dataSource from "../database/typeorm/data-source";
 
@@ -53,6 +53,5 @@ const getFileById = async (req: Request, res: Response) => {
       return res.status(500).json({ message: "Erro ao buscar a imagem", error: error.message });
     }
   };
-
 
 export { upload, saveFileToDatabase, getFileById };

@@ -1,5 +1,5 @@
 export class signupDTO {
-    numberRegister: string;
+    numberRegister: number;
     password: string;
     username: string;
     type: string;
@@ -9,7 +9,7 @@ export class signupDTO {
 }
 
 export class authDTO {
-    numberRegister: string;
+    numberRegister: number;
     password: string;
 }
 

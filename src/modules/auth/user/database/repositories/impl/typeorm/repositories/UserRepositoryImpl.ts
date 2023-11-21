@@ -11,7 +11,7 @@ export class UserRepositoryImpl
         super('id', User);
     }
 
-     async getByNumberRegister(numberRegister: string): Promise<UserDTO> {
+     async getByNumberRegister(numberRegister: number): Promise<UserDTO> {
         const user =  await this.typeormRepository.findOne({ 
             where: { numberRegister }
         });
@@ -20,7 +20,7 @@ export class UserRepositoryImpl
 
     }
 
-    async createUser(numberRegister: string, password: string, username: string, type: string, name: string, photoLink: string, description: string): Promise<UserDTO> {
+    async createUser(numberRegister: number, password: string, username: string, type: string, name: string, photoLink: string, description: string): Promise<UserDTO> {
         const user = this.typeormRepository.create({
             numberRegister,
             password, 

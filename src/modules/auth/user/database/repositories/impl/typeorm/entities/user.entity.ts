@@ -23,8 +23,8 @@ export class User {
   @Column("varchar", { length: 255, unique: true })
   username: string;
 
-  @Column("varchar", { length: 255, unique: true })
-  numberRegister: string;
+  @Column()
+  numberRegister: number;
 
   @Column("varchar", { length: 255 })
   password: string;
@@ -46,9 +46,5 @@ export class User {
 
   @OneToMany(() => schedule, (schedule) => schedule.userId)
   schedules: schedule
-
-  @ManyToOne(() => Pictures, (pictures) => pictures.user, {eager: true})
-  @JoinColumn({name: "pictures_id"})
-  picturesId: Pictures
 
 }

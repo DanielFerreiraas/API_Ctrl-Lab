@@ -19,7 +19,7 @@ export class UserServiceImpl
     ) {
         super(userRepository);
     }
-    async getByNumberRegister(numberRegister: string): Promise<UserDTO> {
+    async getByNumberRegister(numberRegister: number): Promise<UserDTO> {
         return this.userRepository.getByNumberRegister(numberRegister);
     }
     }   
