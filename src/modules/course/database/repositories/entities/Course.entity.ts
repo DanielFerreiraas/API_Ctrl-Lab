@@ -14,7 +14,7 @@ export class Course {
     idClass: string;
 
     @Column()
-    period: string;
+    period: number;
     
     @OneToMany(() => schedule, (schedule) => schedule.courseId)
     schedules: schedule
