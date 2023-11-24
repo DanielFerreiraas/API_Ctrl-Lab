@@ -10,7 +10,4 @@ export class Pictures {
 
     @Column()
     src: string;
-
-    @OneToMany(() => Laboratory, (laboratory) => laboratory.picturesId)
-    laboratory: Laboratory
 }

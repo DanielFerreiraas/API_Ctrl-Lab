@@ -8,26 +8,22 @@ export class Laboratory {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
+    @Column({nullable: true})
     name: string;
 
-    @Column()
-    photoLink: string;
+    @Column({nullable: true})
+    src: string;
 
-    @Column()
+    @Column({nullable: true})
     location: string;
 
-    @Column()
+    @Column({nullable: true})
     hourOpen: string;
 
-    @Column()
+    @Column({nullable: true})
     hourClose: string;
 
     @OneToMany(() => schedule, (schedule) => schedule.laboratoryId)
     schedules: schedule
-
-    @ManyToOne(() => Pictures, (pictures) => pictures.laboratory, {eager: true})
-    @JoinColumn({name: "pictures_id"})
-    picturesId: Pictures
 
 }

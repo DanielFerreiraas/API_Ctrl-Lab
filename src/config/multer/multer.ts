@@ -3,6 +3,7 @@ import path from "path";
 import { Request, Response } from "express"; // Adicionando a importação de Response
 import { Pictures } from "@/modules/pictures/database/repositories/entities/Pictures.entity";
 import dataSource from "../database/typeorm/data-source";
+import { Laboratory } from "@/modules/laboratory/database/repositories/entities/Laboratory.entity";
 
 const storage: StorageEngine = multer.diskStorage({
     destination: (req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) => {
@@ -22,11 +23,11 @@ const saveFileToDatabase = async (req: Request, res: Response) => {
             return res.status(400).json({ message: "Arquivo não fornecido" });
         }
 
-        const picturesRepository = dataSource.getRepository(Pictures);
-        const newPicture = picturesRepository.create({ src: file.path });
-        const savedPicture = await picturesRepository.save(newPicture);
+        const laboratoryRepository = dataSource.getRepository(Laboratory);
+        const newPicture = laboratoryRepository.create({ src: file.path });
+        const savedPicture = await laboratoryRepository.save(newPicture);
 
-        return res.status(201).json({ picture: savedPicture });
+        return res.status(201).json({ laboratory: savedPicture });
     } catch (error) {
         return res.status(500).json({ message: "Erro ao salvar imagem no banco de dados", error: error.message });
     }
