@@ -8,19 +8,19 @@ export class Laboratory {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({nullable: true})
+    @Column()
     name: string;
 
-    @Column({nullable: true})
-    src: string;
+    @Column()
+    photoLink: string;
 
-    @Column({nullable: true})
+    @Column()
     location: string;
 
-    @Column({nullable: true})
+    @Column()
     hourOpen: string;
 
-    @Column({nullable: true})
+    @Column()
     hourClose: string;
 
     @OneToMany(() => schedule, (schedule) => schedule.laboratoryId)
