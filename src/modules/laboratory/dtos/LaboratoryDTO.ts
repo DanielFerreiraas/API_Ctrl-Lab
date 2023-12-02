@@ -1,5 +1,4 @@
 export class LaboratoryDTO{
-
     id: string;
     name: string;
     src: string;

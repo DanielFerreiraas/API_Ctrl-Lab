@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.put("/upload/:id", upload.single("file"), updateFileInDatabase);
-app.use('/files', express.static(path.resolve(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
 
 app.use('/api', router);
 
