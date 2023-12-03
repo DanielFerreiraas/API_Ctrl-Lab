@@ -1,4 +1,3 @@
-import { Pictures } from "@/modules/pictures/database/repositories/entities/Pictures.entity";
 import { schedule } from "../../../../../../../../modules/schedule/database/repositories/entities/schedule.entity";
 import {
   Entity,
@@ -6,8 +5,8 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   OneToMany,
-  JoinColumn,
   ManyToOne,
+  JoinColumn,
 } from "typeorm";
 
 export enum types {
@@ -38,8 +37,8 @@ export class User {
   @Column()
   name: string;
 
-  @Column()
-  photoLink: string;
+  @Column({nullable: true})
+  src: string;
 
   @Column()
   description: string;

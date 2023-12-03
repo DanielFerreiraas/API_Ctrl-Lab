@@ -24,7 +24,7 @@ BaseService<T, U, V> {
         return this.baseRepository.getItemById(id);
     }
 
-    async getItemByField(field: string, value: string): Promise<T> {
+    async getItemByField(field: string, value: string): Promise<T[]> {
         return this.baseRepository.getItemByField(field, value);
     }
 

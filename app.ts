@@ -11,12 +11,14 @@ import cors from "cors";
 import router from './src/shared/api/routes';
 import {  updateFileInDatabase, upload } from "./src/config/multer/multer";
 import path from "path";
+import { updateFileUser } from "@/config/multer/multerUser";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+app.put("/pictureUser/:id", upload.single("file"), updateFileUser);
 app.put("/upload/:id", upload.single("file"), updateFileInDatabase);
 app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
 

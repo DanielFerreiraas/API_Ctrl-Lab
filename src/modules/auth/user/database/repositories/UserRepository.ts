@@ -15,6 +15,6 @@ export interface UserRepository
             username: string, 
             type: string, 
             name: string, 
-            photoLink: string, 
+            src: string,
             description: string): Promise<UserDTO>;
     }
