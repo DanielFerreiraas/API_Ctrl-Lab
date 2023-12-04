@@ -1,4 +1,3 @@
-import { Pictures } from "@/modules/pictures/database/repositories/entities/Pictures.entity";
 import { schedule } from "../../../../../modules/schedule/database/repositories/entities/schedule.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from "typeorm";
 
