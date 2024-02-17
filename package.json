@@ -7,7 +7,7 @@
     "node": "18"
   },
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
     "dev": "ts-node-dev --transpile-only -r tsconfig-paths/register src/server.ts",
     "build": "tsc"
   },
