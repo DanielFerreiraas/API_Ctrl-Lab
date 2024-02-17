@@ -2,7 +2,7 @@ import multer, { StorageEngine } from "multer";
 import path from "path";
 import { Request, Response } from "express"; // Adicionando a importação de Response
 import dataSource from "../database/typeorm/data-source";
-import { Laboratory } from "@/modules/laboratory/database/repositories/entities/Laboratory.entity";
+import { User } from "@/modules/auth/user/database/repositories/impl/typeorm/entities/user.entity";
 
 const storage: StorageEngine = multer.diskStorage({
   destination: (req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) => {
@@ -17,7 +17,7 @@ const storage: StorageEngine = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const updateFileInDatabase = async (req: Request, res: Response) => {
+const updateFileUser = async (req: Request, res: Response) => {
   try {
       const file = req.file;
       const { id } = req.params; // ID do laboratório a ser atualizado
@@ -26,22 +26,22 @@ const updateFileInDatabase = async (req: Request, res: Response) => {
           return res.status(400).json({ message: "Arquivo não fornecido" });
       }
 
-      const laboratoryRepository = dataSource.getRepository(Laboratory);
+      const userRepository = dataSource.getRepository(User);
 
       // Verificar se o laboratório com o ID fornecido existe
-      const existingLaboratory = await laboratoryRepository.findOne({ where: {id}});
-      if (!existingLaboratory) {
+      const existingUser = await userRepository.findOne({ where: {id}});
+      if (!existingUser) {
           return res.status(404).json({ message: "Laboratório não encontrado" });
       }
 
       // Atualizar o caminho da imagem no laboratório existente
-      existingLaboratory.src = file.path;
-      const updatedLaboratory = await laboratoryRepository.save(existingLaboratory);
+      existingUser.src = file.path;
+      const updatedUser = await userRepository.save(existingUser);
 
-      return res.status(200).json({ laboratory: updatedLaboratory });
+      return res.status(200).json({ user: updatedUser });
   } catch (error) {
       return res.status(500).json({ message: "Erro ao atualizar imagem no banco de dados", error: error.message });
   }
 };
 
-export { upload, updateFileInDatabase  };
+export { upload, updateFileUser  };

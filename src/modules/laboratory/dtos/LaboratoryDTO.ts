@@ -1,8 +1,7 @@
 export class LaboratoryDTO{
-
     id: string;
     name: string;
-    photoLink: string;
+    src: string;
     location: string;
     hourOpen: string;
     hourClose: string;
