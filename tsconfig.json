@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     "target": "es2016",
-    "module": "commonjs", 
+    "module": "commonjs",
     "baseUrl": "./src",
     "outDir": "./dist",
     "paths": {
       "@/*": ["*"]
     },
-    "esModuleInterop": true, 
-    "forceConsistentCasingInFileNames": true, 
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "strict": false,
     "skipLibCheck": true,
     "emitDecoratorMetadata": true,
